@@ -1,0 +1,40 @@
+import { VerticalBox, HorizontalBox, Text, Button, ScrollView } from "std-widgets.slint";
+
+export component LincatPanel {
+    in property<string> driver_state;
+    in property<string> streaming_state;
+    in property<string> position;
+    in property<string> log_text;
+
+    callback start_clicked;
+    callback pause_clicked;
+    callback resume_clicked;
+    callback stop_clicked;
+
+    VerticalBox {
+        spacing: 8px;
+        padding: 12px;
+
+        HorizontalBox {
+            spacing: 8px;
+            Button { text: "START"; clicked => { root.start_clicked(); } }
+            Button { text: "PAUSE"; clicked => { root.pause_clicked(); } }
+            Button { text: "RESUME"; clicked => { root.resume_clicked(); } }
+            Button { text: "STOP"; clicked => { root.stop_clicked(); } }
+        }
+
+        Text { text: "Driver: " + root.driver_state; }
+        Text { text: "Streaming: " + root.streaming_state; }
+        Text { text: "Posición: " + root.position; }
+
+        Text { text: "Log:"; }
+
+        ScrollView {
+            height: 200px;
+            Text {
+                text: root.log_text;
+                wrap: word;
+            }
+        }
+    }
+}

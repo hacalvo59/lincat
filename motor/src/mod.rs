@@ -1,0 +1,10 @@
+pub mod core;
+pub mod export;
+pub mod bus;
+pub mod cam;
+pub mod cnc;
+pub mod modulos;
+pub mod ops;
+pub mod protocolo;
+pub mod scheduler;
+pub mod sim;
