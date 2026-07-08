@@ -10,6 +10,7 @@ pub struct SelectorHelicoidal {
 }
 
 impl SelectorHelicoidal {
+    #[inline]
     pub fn nuevo(modo: &str) -> Self {
         let modo_final = match modo {
             "helicoidal" => ModoHelicoidal::HelicoidalG2G3,
@@ -20,6 +21,7 @@ impl SelectorHelicoidal {
         Self { modo: modo_final }
     }
 
+    #[inline]
     pub fn usar_helicoidal(&self) -> bool {
         matches!(self.modo, ModoHelicoidal::HelicoidalG2G3)
     }
